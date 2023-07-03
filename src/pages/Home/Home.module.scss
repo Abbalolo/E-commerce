@@ -1,0 +1,43 @@
+.home {
+  display: grid;
+  grid-template-columns: 20% 48% auto;
+  grid-template-areas:
+    "sidebar slidebanner smallbanner"
+    "sidebar productpage productpage"
+    "sidebar productpage productpage";
+  gap: 0.5em;
+  justify-content: center;
+
+
+}
+.filter {
+  grid-area: sidebar;
+  
+}
+
+.slidebanner {
+  grid-area: slidebanner;
+}
+
+.smallbanner {
+  grid-area: smallbanner;
+}
+.productpage {
+  grid-area: productpage;
+  display: grid;
+  gap: 40px;
+  padding-bottom: 3em;
+  justify-content: center;
+ 
+}
+
+@media screen and (max-width: 600px) {
+  
+  .home {
+    all:unset;
+
+  }
+ 
+
+
+}

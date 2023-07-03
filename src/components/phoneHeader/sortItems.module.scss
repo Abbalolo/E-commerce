@@ -1,0 +1,55 @@
+.gridContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+   
+}
+.sortItems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgb(176, 175, 175);
+    
+    
+}
+
+.sortItems p{
+    font-weight: 700;
+}
+.sortItems select{
+    margin-left: .5em;
+}
+
+.sort{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    // margin: 0 4.5em;
+    
+    
+    
+    
+}
+.header{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:.5em 0;
+    flex-direction: column;
+    gap: 10px;
+    
+    
+}
+
+
+.toggleGrid{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+

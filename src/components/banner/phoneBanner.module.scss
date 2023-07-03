@@ -1,0 +1,86 @@
+.phoneBanner{
+display:grid;
+grid-template-columns: repeat(6, auto);
+justify-content: center;
+row-gap: 13px;
+column-gap: 5px;
+height: 100%;
+
+}
+
+.phoneContainer{
+    background-color: white;
+    width: 150px;
+    height: 100%;
+    padding:.5em .5em 0em .5em;
+    
+    
+}
+.content{
+    display: flex;
+    flex-direction: column;
+}
+.phoneContainer span{
+  font-weight: 600;
+  font-size: 13px;
+}
+.phoneContainer span:last-child{
+ color: rgb(117, 117, 116);
+}
+.phoneContainer:hover,
+.more:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.image {
+ width: 100%;
+ height: 100px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: .5em 0;
+
+}
+.p{
+    font-size: 14px;
+}
+.more{
+    width: 166px;
+    background-color: #f3594b;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.more a{
+    
+    display: flex;
+    align-items: center;
+    font-size:13px;
+    
+}
+.more a:hover{
+    color: white;
+    text-decoration: none;
+}
+.links{
+    text-decoration: none;
+    color: black;
+}
+
+@media only screen and (max-width: 600px) {
+    .phoneBanner{
+        grid-template-columns: repeat(2,auto);
+        margin-top: 1em;
+    }
+
+    .phoneContainer{
+        width: 170px;
+    }
+}

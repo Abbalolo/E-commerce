@@ -1,0 +1,43 @@
+.search{
+    background-color: white;
+    padding: .5em 1em;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    border: 1px solid rgb(214, 213, 213);
+
+
+}
+
+.search input{
+    border: none;
+    background-color: none;
+    outline: none;
+    width: 100%;
+}
+
+.searchIcon:hover{
+ color: rgb(210, 30, 30);
+ font-weight: 700;
+}
+
+.icons{
+    display: flex;
+    gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  
+    .search{
+        width: 415px;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    
+    }
+    
+  
+  
+  }
+  

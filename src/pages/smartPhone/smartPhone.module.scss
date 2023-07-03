@@ -1,0 +1,268 @@
+.filter{
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    padding: 0 1em; 
+    overflow: hidden;
+    margin: 1.5em auto;
+    height: 100vh;
+ 
+}
+.pageFilter{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% auto;
+    gap: 50px;
+    
+}
+
+.categories
+{
+    line-height: 2px;
+}
+
+.priceListContainer{
+ margin-top: 1em;
+}
+
+.priceList label{
+    font-size: 13px;
+}
+
+.price{
+    line-height: 20px;
+}
+.categories ul{
+ line-height: 2px;
+ padding: .5em;
+}
+.categories ul li{
+ list-style-type: none;
+}
+ul li a{
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+    cursor: pointer;
+}
+
+ul li a:hover{
+    color:  #dd4e40;
+}
+
+.phoneBrandRam{
+    margin-top: 1.5em;
+}
+
+.searchPhone,
+.searchRam{
+    font-size: 12px;
+    padding: .2em .5em;
+    outline: none;
+}
+
+.allRam,
+.allBrand{
+    margin-top: .5em;
+}
+
+.phone label,
+.ram label{
+    font-size: 12px;
+}
+
+.price input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-moz-number-spin-box {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.price input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+.price input[type="number"] {
+  appearance: textfield;
+}
+.price input[type="radio"], 
+input[type="checkbox"] {
+  cursor:pointer;
+}
+
+
+.price input[type="number"] {
+  width: 50px;
+  height: 25px;
+  outline: none;
+
+}
+
+button{
+    margin-top: 1em;
+    color: rgb(33, 133, 232);
+    outline: none;
+    border: none;
+    background: none;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: capitalize;
+    
+}
+.devices{
+    // margin: 1em 4.5em;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    place-items: center;
+   gap: 10px;
+   margin-top: 1em;
+    
+    
+}
+
+.allDevice{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.allDevice:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.phoneImage{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.phoneDesc{
+    padding: 0 .5em;
+}
+.phoneDesc a{
+   color: black;
+   text-decoration: none;
+}
+.block{
+    display: grid ;
+    grid-template-columns: 1fr;
+    // margin: 0 4.4em;
+    gap: 10px; 
+    
+}
+.allDevice a{
+    text-decoration: none;
+    color: black;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.flex a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+
+.flex:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.detailsSec{
+    margin-bottom: 1em;
+}
+.detailsSec a{
+    color: black;
+}
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.imgContainer{
+    width: 450px;
+    height: 100%;
+  
+    
+}
+
+// .smallImageCOn{
+//     display: flex;
+//     width: 100%;
+//     justify-content: space-around;
+
+    
+// }
+
+// .smallImage{
+//     width: 45px;
+//     padding: .2em;
+// }
+// .smallImage:hover{
+//     border: 1px solid rgb(26, 97, 240);
+// }
+
+
+
+@media screen and (max-width: 600px) {
+     .filter{
+        display: none;
+     }
+     .pageFilter{
+        all: unset;
+       
+     }
+
+     .smartPhones{
+        margin: 0 1.5em;
+     }
+
+     .devices{  
+        grid-template-columns: repeat(2,auto);
+        // margin: 1em 1.6em;
+    }
+
+    .phoneDesc{
+        text-align: center;
+    }
+
+    
+    
+    .flex{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        
+    }
+    .imgContainer{
+        width: 250px;
+        margin: 0 auto;
+    }
+    
+    .details{
+        flex-direction: column;
+    }    
+    
+
+}
+
