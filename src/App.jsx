@@ -13,8 +13,19 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SmartPhone from "./pages/smartPhone/SmartPhone";
 import ProductDetails from "./pages/smartPhone/productDetails/ProductDetails";
+import CartProduct from "./pages/cart/CartProduct";
+import {useSelector, useDispatch} from "react-redux"
+import { useEffect } from "react";
+import { updateTotalAmount } from "./redux/slice/cartSlice";
+
 
 function App() {
+  const {products} = useSelector((store) => store.cart)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(updateTotalAmount())
+  },[products,dispatch])
   return (
     <div className="App">
       <>
@@ -23,9 +34,10 @@ function App() {
           <Header />
           <div className="margin">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" exact element={<Home />} />
               <Route path="admin" element={<Admin />} />
               <Route path="cart" element={<Cart />} />
+              <Route path="cartProduct" element={<CartProduct />} />
               <Route path="contact" element={<ContactUS />} />
               <Route path="login" element={<Login />} />
               <Route path="Orderhistory" element={<OrderHistory />} />

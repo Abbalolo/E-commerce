@@ -299,6 +299,7 @@ function SmartPhone() {
                     <h4>{items.title}</h4>
                   
                   <p>#{items.price}</p>
+                  <button className={styles.addButton}>Add to Cart</button>
                 </div>
                 </Link>
               </div>

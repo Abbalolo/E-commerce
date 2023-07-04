@@ -18,7 +18,8 @@ function ProductDetails() {
           <h5>{name}</h5>
         <h2>{title}</h2>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores autem expedita, nobis culpa ipsam praesentium distinctio recusandae consectetur sequi nisi cumque nulla numquam. Atque ea nihil consectetur repellat, at deserunt!</p>
-          </di>
+        <button className={styles.addButton}>Add to Cart</button>
+          </di> 
         
 
         </div>

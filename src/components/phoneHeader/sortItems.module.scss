@@ -52,4 +52,15 @@
     align-items: center;
     justify-content: center;
 }
-
+.arrowFlexContainer{
+    display: flex;
+    gap: 10px;
+    
+}
+.arrowFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}

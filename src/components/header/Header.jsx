@@ -8,14 +8,14 @@ import { toast } from "react-toastify";
 import { auth } from "../../firebase/config/Config";
 import { useDispatch } from "react-redux";
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from "../../redux/slice/authSlice";
-
+import {useSelector} from "react-redux"
 
 
 function Header() {
   const [changeMenu, setChangeMenu] = useState(false);
   const [displayNam, setDisplayNam] = useState("");
   const [showLinks, setShowLinks] = useState(false);
-
+  const amount = useSelector((store) => store.cart.amount);
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
@@ -203,7 +203,7 @@ function Header() {
               <NavLink to="/cart" className="logo">
                 Cart
                 <FiShoppingCart style={{ color: "white" }} />
-                <span className="p-top">0</span>
+                <span className="p-top">{amount}</span>
               </NavLink>
             </li>
             {showLinks && (

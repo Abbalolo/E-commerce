@@ -5,6 +5,7 @@ import { SiWindows11 } from "react-icons/si";
 import { FaWindowMaximize } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import SearchBar from "../searchbar/SearchBar";
+import { phone } from "../../pages/smartPhone/smartPhoneData";
 
 function SortItems({ handleLayOut, currentPost, setFilteredData, filteredData }) {
   const [toggle, setToggle] = useState(false);
@@ -24,13 +25,14 @@ function SortItems({ handleLayOut, currentPost, setFilteredData, filteredData })
 
   useEffect(() => {
     const totalProducts = () => {
-      const objectLength = Object.keys(currentPost).length;
+      const objectLength = Object.keys(phone).length;
       setTotalProduct(objectLength);
+      
     };
 
     handleSortFilter();
     totalProducts();
-  }, [currentPost]);
+  }, [filteredData]);
 
   const handleSortOptionChange = (event) => {
     setSortOption(event.target.value);
