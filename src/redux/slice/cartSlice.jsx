@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {phone } from "./smartPhoneData"
-
 
 const initialState = {
-  products: phone,
+  products: [],
   amount: 0,
   total: 0,
 }
@@ -34,9 +32,20 @@ const cartSlice = createSlice({
     state.amount = amount
     state.total = total
 
-   }
+   },
+   addToCart: (state, { payload }) => {
+    const existingProduct = state.products.find(item => item.name === payload.name);
+    if (existingProduct) {
+      existingProduct.amount++;
+    } else {
+      state.products.push({ ...payload, amount: 1 });
+ 
+
+    }
+  },
+   
   }
 })
 
-export const { increaseAmount, decreaseAmount, removeItem, updateTotalAmount } = cartSlice.actions
+export const { increaseAmount, decreaseAmount, removeItem, updateTotalAmount, addToCart } = cartSlice.actions
 export default cartSlice.reducer

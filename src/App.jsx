@@ -34,7 +34,7 @@ function App() {
           <Header />
           <div className="margin">
             <Routes>
-              <Route path="/" exact element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="admin" element={<Admin />} />
               <Route path="cart" element={<Cart />} />
               <Route path="cartProduct" element={<CartProduct />} />

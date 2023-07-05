@@ -9,6 +9,7 @@ function CartProduct({name, price, image, amount}) {
 
     const dispatch = useDispatch()
   return (
+  
     <div className={styles.cart}>
         <img src={image} alt={name + "smartPhone"} className={styles.cartImg}/>
         <div className={styles.cartPrice}>

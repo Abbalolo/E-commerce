@@ -4,9 +4,12 @@ import { phone } from "./smartPhoneData";
 import styles from "./smartPhone.module.scss";
 import SortItems from "../../components/phoneHeader/SortItems";
 import Pagination from "../../components/pagination/Pagination";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slice/cartSlice";
 
 function SmartPhone() {
-  // const [data , setData] = useState(phone)
+  
+
   const [filteredData, setFilteredData] = useState(phone);
   const [searchPhone, setSearchPhone] = useState("");
   const [searchRam, setSearchRam] = useState("");
@@ -18,7 +21,7 @@ function SmartPhone() {
   const [block, setBlock] = useState("false");
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(10);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     filterData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,15 +49,15 @@ function SmartPhone() {
       const minValue = parseInt(min);
       const maxValue = parseInt(max);
       filteredResult = filteredResult.filter((item) => {
-        return  isNaN(minValue) || isNaN(maxValue) || (minValue === 0 && maxValue === 0) ?
-        item
-        :(minValue === 0 && maxValue === 0) ||
-        (item.price >= minValue && item.price <= maxValue)
-        
+        return isNaN(minValue) ||
+          isNaN(maxValue) ||
+          (minValue === 0 && maxValue === 0)
+          ? item
+          : (minValue === 0 && maxValue === 0) ||
+              (item.price >= minValue && item.price <= maxValue);
       });
       setFilteredData(filteredResult);
-    } 
-
+    }
 
     const lastPageIndex = currentPage * postPerPage;
     const firstPageIndex = lastPageIndex - postPerPage;
@@ -75,24 +78,22 @@ function SmartPhone() {
   const searchRadioPrice = (e) => {
     e.preventDefault();
     // eslint-disable-next-line no-undef
-    setSearchPrice(filteredData)
-    
+    setSearchPrice(filteredData);
   };
 
   const handleMinVale = (e) => {
     const value = parseInt(e.target.value);
-    setMin(value)
-  }
+    setMin(value);
+  };
   const handleMaxVale = (e) => {
     const value = parseInt(e.target.value);
-    setMax(value)
-   
-  }
+    setMax(value);
+  };
 
   const removePrice = () => {
-    setMax("")
-    setMin("")
-  }
+    setMax("");
+    setMin("");
+  };
 
   const handleLayOut = () => {
     setBlock(!block);
@@ -202,7 +203,9 @@ function SmartPhone() {
                 onChange={handleMaxVale}
               />
             </div>
-            <button type="submit" onClick={removePrice}>Remove</button>
+            <button type="submit" onClick={removePrice}>
+              Remove
+            </button>
             <button type="submit">filter</button>
           </form>
         </div>
@@ -287,21 +290,27 @@ function SmartPhone() {
                 key={items.id}
               >
                 <Link to={`/smartPhone/${items.id}`}>
-                <div className={styles.phoneImage}>
-                  <img
-                    className={styles.image}
-                    src={items.image}
-                    alt={items.name}
-                  />
-                </div>
-                <div className={styles.phoneDesc}>
-                  
-                    <h4>{items.title}</h4>
-                  
-                  <p>#{items.price}</p>
-                  <button className={styles.addButton}>Add to Cart</button>
-                </div>
+                  <div className={styles.phoneImage}>
+                    <img
+                      className={styles.image}
+                      src={items.image}
+                      alt={items.name}
+                    />
+                  </div>
                 </Link>
+                <div className={styles.phoneDesc}>
+                  <h4>{items.title}</h4>
+
+                  <p>#{items.price}</p>
+                  <button
+                    onClick={() => {
+                      dispatch(addToCart(items));
+                    }}
+                    className={styles.addButton}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             );
           })}
