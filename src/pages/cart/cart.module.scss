@@ -1,3 +1,5 @@
+
+
 .cart{
     display: flex;
     justify-content: space-between;
@@ -6,15 +8,16 @@
    
 }
 
-.cartContainer{
-}
 
 .cartPrice{
     display: flex;
     flex-direction: column;
-    align-items: start;
-    width: 30%;
     line-height: 0px;
+ 
+}
+
+.cartPrice p{
+  font-size: 15px;
  
 }
 .cart p{
@@ -73,6 +76,7 @@ text-align: start;
 }
 .backtohome{
     color: black;
+    text-align: center;
    
 }
 
@@ -80,5 +84,8 @@ text-align: start;
     .cart{
        margin: 1em 1.5em 2em 1.5em;
        
+    }
+    .cartContainer{
+        margin: .5em 2em;
     }
 }

@@ -209,6 +209,7 @@ button{
     background:#3f2350;
     padding: .7em;
     font-size: 13px;
+    margin-bottom: 1em;
 }
 
 // .smallImageCOn{
@@ -269,7 +270,9 @@ button{
     .details{
         flex-direction: column;
     }    
-    
+    .detailsSec{
+        margin: 0 2em;
+    }
 
 }
 

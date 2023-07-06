@@ -4,6 +4,7 @@ import { phoneBannerData } from "./phoneBannerData";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
+
 function PhoneBanner() {
   return (
     <div className={styles.phoneBanner}>   

@@ -7,6 +7,8 @@ import Pagination from "../../components/pagination/Pagination";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slice/cartSlice";
 
+
+
 function SmartPhone() {
   
 
@@ -20,7 +22,7 @@ function SmartPhone() {
   const [phoneRam, setPhoneRam] = useState("");
   const [block, setBlock] = useState("false");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage] = useState(10);
+  const [postPerPage] = useState(15);
   const dispatch = useDispatch();
   useEffect(() => {
     filterData();
@@ -58,13 +60,17 @@ function SmartPhone() {
       });
       setFilteredData(filteredResult);
     }
-
+    
     const lastPageIndex = currentPage * postPerPage;
     const firstPageIndex = lastPageIndex - postPerPage;
     const currentPost = filteredResult.slice(firstPageIndex, lastPageIndex);
 
     setFilteredData(currentPost);
+    
+    
+   
   };
+  
 
   const handleRam = (e) => {
     e.preventDefault();
@@ -276,7 +282,6 @@ function SmartPhone() {
         <div className={styles.sortContainer}>
           <SortItems
             handleLayOut={handleLayOut}
-            currentPost={filteredData}
             setFilteredData={setFilteredData}
             filteredData={filteredData}
           />
@@ -305,6 +310,7 @@ function SmartPhone() {
                   <button
                     onClick={() => {
                       dispatch(addToCart(items));
+                     
                     }}
                     className={styles.addButton}
                   >

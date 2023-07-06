@@ -34,10 +34,10 @@ function Cart() {
         <p className={styles.empty}>Your Cart is empty</p>
       )}
 
+    </div>
       <Link className={styles.backtohome} to="/">
         Back to product page
       </Link>
-    </div>
     </section>
   );
 }

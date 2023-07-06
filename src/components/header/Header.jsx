@@ -142,6 +142,7 @@ function Header() {
             <NavLink to="/cart" className="logo">
               Cart
               <FiShoppingCart style={{ color: "white" }} />
+              <span className="p-top">{amount}</span>
             </NavLink>
           </li>
           <li>
