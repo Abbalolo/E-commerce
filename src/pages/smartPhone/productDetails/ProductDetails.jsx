@@ -7,7 +7,6 @@ function ProductDetails() {
     const dispatch = useDispatch();
     const { productId } = useParams();
     const  product = phone.find((product) => product.id == productId) ;
-    console.log(product)
      const {name ,title,image} = product;
     return (
     <section className={styles.detailsSec}>
@@ -17,14 +16,14 @@ function ProductDetails() {
           <img className={styles.img} src={image} alt={name} />
           </div>
          
-          <di className={styles.detailsContent}>
+          <div className={styles.detailsContent}>
           <h5>{name}</h5>
         <h2>{title}</h2>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores autem expedita, nobis culpa ipsam praesentium distinctio recusandae consectetur sequi nisi cumque nulla numquam. Atque ea nihil consectetur repellat, at deserunt!</p>
         <button className={styles.addButton}  onClick={() => {
                       dispatch(addToCart(product));
                     }}>Add to Cart</button>
-          </di> 
+          </div> 
         
 
         </div>
