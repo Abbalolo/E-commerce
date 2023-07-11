@@ -1,3 +1,4 @@
+import { AiOutlineMenuUnfold } from "react-icons/ai"; 
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -11,10 +12,13 @@ import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from "../../redux/slice/authSlice
 import {useSelector} from "react-redux"
 
 
+
+
 function Header() {
   const [changeMenu, setChangeMenu] = useState(false);
   const [displayNam, setDisplayNam] = useState("");
   const [showLinks, setShowLinks] = useState(false);
+  // const [showFilter,setShowFilter] = useState(false);
   const amount = useSelector((store) => store.cart.amount);
   const dispatch = useDispatch()
   const navigate = useNavigate();
@@ -26,6 +30,10 @@ function Header() {
   const hideMenu = () => {
     setChangeMenu(false);
   };
+
+  // const showFilterMenu = () => {
+  //   setShowFilter(false)
+  // }
 
   const logOutUser = () => {
     signOut(auth)
@@ -74,8 +82,6 @@ function Header() {
   }, []);
 
 
-  
-
 
   return (
     <header>
@@ -83,6 +89,9 @@ function Header() {
       <div className="header">
         <div className="flex-now">
         <div className="logo">
+          <div className="filterMenu">
+          <AiOutlineMenuUnfold style={{color: "white", fontSize: "25", cursor: "pointer"}}/>  
+        </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 48 48"
@@ -151,11 +160,11 @@ function Header() {
               {showLinks && <span style={{ color: "#dd4e40" }} >Hi, {displayNam}</span>}
             </Link>
           </li>
-          {changeMenu === false ? (
+          {!changeMenu ? (
             <FaBars
               className="z-index"
               onClick={changeMenuToTimes}
-              style={{ color: "white" }}
+              style={{color: "white", fontSize: "20"}}
             />
           ) : (
             <FaTimes
@@ -219,7 +228,7 @@ function Header() {
 
         <nav
           className={`min-display ${
-            changeMenu === true ? "opennav" : "min-display"
+            changeMenu? "opennav" : "min-display"
           }`}
         >
           <ul onClick={hideMenu}>
@@ -260,6 +269,7 @@ function Header() {
         className={changeMenu ? `menu-blur` : "menu-blur2"}
         onClick={hideMenu}
       ></div> 
+      
     </header>
   );
 }

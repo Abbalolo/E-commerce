@@ -6,6 +6,8 @@ import SortItems from "../../components/phoneHeader/SortItems";
 import Pagination from "../../components/pagination/Pagination";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slice/cartSlice";
+import ItemFilter from "./ItemFilter";
+
 
 
 
@@ -100,6 +102,12 @@ function SmartPhone() {
     setMax("");
     setMin("");
   };
+  const removeRam = () => {
+    setPhoneRam("")
+  };
+  const removePhone = () => {
+    setRadio("")
+  };
 
   const handleLayOut = () => {
     setBlock(!block);
@@ -107,183 +115,33 @@ function SmartPhone() {
 
   return (
     <div className={styles.pageFilter}>
-      <div className={styles.filter}>
-        <div className={styles.categories}>
-          <h4>Categories</h4>
-          <ul>
-            <li>
-              <Link to="/">Mobile Phone</Link>
-            </li>
-            <li>
-              <Link to="/">Mobile Accessories</Link>
-            </li>
-            <li>
-              <Link to="/">Tablet</Link>
-            </li>
-          </ul>
-        </div>
-
-        <form onSubmit={searchRadioItem} className={styles.phoneBrandName}>
-          <input
-            type="text"
-            className={styles.searchPhone}
-            placeholder="Find your brand"
-            value={searchPhone}
-            onChange={(e) => setSearchPhone(e.target.value)}
-          />
-
-          <div className={styles.allBrand}>
-            <div className={styles.phone}>
-              <input
-                type="radio"
-                name="radio-button"
-                value=""
-                checked={radio === ""}
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label htmlFor="radio-button">Show all</label>
-            </div>
-            <div className={styles.phone}>
-              <input
-                type="radio"
-                name="radio-button"
-                value="apple"
-                checked={radio === "apple"}
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label htmlFor="radio-button">Apple</label>
-            </div>
-            <div className={styles.phone}>
-              <input
-                type="radio"
-                name="radio-button"
-                value="samsung"
-                checked={radio === "samsung"}
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label htmlFor="radio-button">Samsung</label>
-            </div>
-            <div className={styles.phone}>
-              <input
-                type="radio"
-                name="radio-button"
-                value="oppo"
-                checked={radio === "oppo"}
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label htmlFor="radio-button">Oppo</label>
-            </div>
-            <div className={styles.phone}>
-              <input
-                type="radio"
-                name="radio-button"
-                value="redmi"
-                checked={radio === "redmi"}
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label htmlFor="radio-button">Redmi</label>
-            </div>
-          </div>
-          <button type="submit">filter</button>
-        </form>
-
-        <div className={styles.price}>
-          <h4>Price</h4>
-          {min}
-          {max}
-          <form onSubmit={searchRadioPrice}>
-            <div className={styles.priceFilter}>
-              <input
-                type="number"
-                className={styles.min}
-                placeholder="min"
-                value={min}
-                onChange={handleMinVale}
-              />
-              -
-              <input
-                type="number"
-                className={styles.max}
-                placeholder="max"
-                value={max}
-                onChange={handleMaxVale}
-              />
-            </div>
-            <button type="submit" onClick={removePrice}>
-              Remove
-            </button>
-            <button type="submit">filter</button>
-          </form>
-        </div>
-
-        <form onSubmit={handleRam} className={styles.phoneBrandRam}>
-          <input
-            type="text"
-            className={styles.searchRam}
-            placeholder="Find your brand"
-            value={searchRam}
-            onChange={(e) => setSearchRam(e.target.value)}
-          />
-          <div className={styles.allRam}>
-            <div className={styles.ram}>
-              <input
-                type="checkbox"
-                name="check-button"
-                value=""
-                onChange={(e) => setPhoneRam(e.target.value)}
-              />
-              <label htmlFor="check-button">Show all</label>
-            </div>
-            <div className={styles.ram}>
-              <input
-                type="checkbox"
-                name="check-button"
-                value="2"
-                onChange={(e) => setPhoneRam(e.target.value)}
-              />
-              <label htmlFor="check-button">2gb</label>
-            </div>
-
-            <div className={styles.ram}>
-              <input
-                type="checkbox"
-                name="check-button"
-                value="4"
-                onChange={(e) => setPhoneRam(e.target.value)}
-              />
-              <label htmlFor="check-button">4gb</label>
-            </div>
-            <div className={styles.ram}>
-              <input
-                type="checkbox"
-                name="check-button"
-                value="6"
-                onChange={(e) => setPhoneRam(e.target.value)}
-              />
-              <label htmlFor="check-button">6gb</label>
-            </div>
-            <div className={styles.ram}>
-              <input
-                type="checkbox"
-                name="check-button"
-                value="8"
-                onChange={(e) => setPhoneRam(e.target.value)}
-              />
-              <label htmlFor="check-button">8gb</label>
-            </div>
-          </div>
-          <button className={styles.button} type="submit">
-            filter
-          </button>
-        </form>
-      </div>
-
+      <ItemFilter
+      removePhone={removePhone}
+      removeRam={removeRam}
+      searchRadioItem={searchRadioItem}
+      searchPhone={searchPhone}
+      setSarchPhone={setSearchPhone}
+      setPhoneRam={setPhoneRam}
+      setRadio={setRadio}
+      radio={radio}
+      searchRadioPrice={searchRadioPrice}
+      searchRam={searchRam}
+      min={min}
+      max={max}
+      handleMaxVale={handleMaxVale}
+      setSearchRam={setSearchRam}
+      handleMinVale={handleMinVale}
+      removePrice={removePrice}
+      handleRam={handleRam}
+      phoneRam={phoneRam}
+      />
       <div className={styles.smartPhones}>
         <div className={styles.sortContainer}>
           <SortItems
             handleLayOut={handleLayOut}
             setFilteredData={setFilteredData}
             filteredData={filteredData}
+            handleMinVale={handleMinVale}
           />
         </div>
 
