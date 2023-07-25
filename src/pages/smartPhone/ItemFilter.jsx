@@ -115,7 +115,7 @@ function ItemFilter({searchRadioItem,searchPhone, setSearchPhone,setRadio,radio,
           <input
             type="text"
             className={styles.searchRam}
-            placeholder="Find your brand"
+            placeholder="Find your phone ram"
             value={searchRam}
             onChange={(e) => setSearchRam(e.target.value)}
           />
